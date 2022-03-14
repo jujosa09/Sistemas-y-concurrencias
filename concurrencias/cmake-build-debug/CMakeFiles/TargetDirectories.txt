@@ -1,0 +1,3 @@
+/home/jujosa09/Documentos/GitHub/Sistemas-y-concurrencias/concurrencias/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jujosa09/Documentos/GitHub/Sistemas-y-concurrencias/concurrencias/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jujosa09/Documentos/GitHub/Sistemas-y-concurrencias/concurrencias/cmake-build-debug/CMakeFiles/concurrencias.dir
