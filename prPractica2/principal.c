@@ -11,12 +11,13 @@
 #include <errno.h>
 #include <time.h>
 #include "arbolbb.h"
+#include "arbolbb.c"
 
 void crearFicheroAleatorios(char *nombreFich, int TAM)
 {
 	FILE *fichero;
     int n;
-    if(fichero = fopen(nombreFich,"wb") == NULL){
+    if((fichero = fopen(nombreFich,"wb")) == NULL){
         perror("Error abriendo fichero.txt");
     }
     printf("El fichero se ha abierto correctamente\n");
@@ -33,11 +34,11 @@ void mostrarFicheroAleatorios(char *nombreFich)
 {
     FILE *fichero;
     int n;
-    if(fichero = fopen(nombreFich,"rb") == NULL){
+    if((fichero = fopen(nombreFich,"rb")) == NULL){
         perror("Error abriendo fichero.txt");
     }
     printf("El fichero se ha abierto correctamente\n");
-    while(fread(&n,sizeof(int),1, fichero) == 1){
+    while(fread(&n,sizeof(int ),1, fichero) == 1){
         printf(" %d ", n);
     }
     fclose(fichero);
@@ -45,7 +46,17 @@ void mostrarFicheroAleatorios(char *nombreFich)
 
 void cargaFichero(char* nfichero, T_Arbol* miarbol)
 {
-	
+	FILE *fichero;
+    unsigned n;
+    if((fichero = fopen(nfichero,"rb")) == NULL){
+        perror("Error al abrir el archivo");
+        return;
+    }else{
+        while(fread(&n,sizeof(unsigned ),1,fichero) == 1){
+            insertar(miarbol,n);
+        }
+    }
+    fclose(fichero);
 }
 
 int main(int argc, char **argv)
